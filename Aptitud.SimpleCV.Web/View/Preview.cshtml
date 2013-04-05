@@ -1,0 +1,58 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Aptitud.SimpleCV.Model.Consultant>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Preview</title>
+</head>
+<body>
+	Konsult: @string.Format("{0} {1}", Model.FirstName, Model.LastName) <br />
+	Titel: @Model.Title<br />
+	<br />
+	Allmänt : @Model.Summary<br />
+	<br />
+	Programspråk : @foreach( var item in Model.GetSkills("DevLanguages")) {
+		@item; <br />
+	}
+	<br />
+	Metoder : @foreach (var item in Model.GetSkills("Methods")) {
+		@item; <br />
+	}
+	<br />
+	Ramverk : @foreach (var item in Model.GetSkills("Frameworks")) {
+		@item; <br />
+	}
+	<br />
+	<br />
+	Utbildning: @foreach (var item in Model.Educations) {
+		<div>Name: @item.Name;</div><br />
+		<div>Beskrivning: @item.Description;</div><br />
+		<div>Start: @item.StartDate; - Slut: @item.EndDate;</div><br />
+		<br />
+	}
+	<br />
+
+	Projekt: @foreach (var item in Model.Projects) {
+		<div>Name: @item.Name;</div><br />
+		<div>Kund: @item.Customer;</div><br />
+		<div>Start: @item.StartDate; - Slut: @item.EndDate;</div><br />
+		<div>Beskrivning: @item.Description;</div><br />
+		<div>Programspråk :</div> 
+		@foreach (var skill in Model.GetSkills("DevLanguages")) {
+			@skill; <br />
+		}
+		<br />
+		<div>Metoder :</div> 
+		@foreach (var skill in Model.GetSkills("Methods")) {
+			@skill; <br />
+		}
+		<br />
+		<div>Ramverk :</div> 
+		@foreach (var skill in Model.GetSkills("Frameworks")) {
+			@skill; <br />
+		}
+		<br />
+	}
+	<br />
+
+</body>
+</html>
