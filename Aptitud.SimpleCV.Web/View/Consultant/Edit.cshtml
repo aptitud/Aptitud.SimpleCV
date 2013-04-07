@@ -1,0 +1,44 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Aptitud.SimpleCV.Model.Consultant>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Simple CV</title>
+</head>
+<body>
+	<form action="/SaveConsultantInfo/" method="post">
+			<table>
+					<tr>
+							<td>Förnamn:</td>
+							<td><input type="text" name="FirstName" value="@Model.FirstName" /></td>
+					</tr>
+					<tr>
+							<td>Efternamn:</td>
+							<td><input type="text" name="LastName" value="@Model.LastName" /></td>
+					</tr>
+					<tr>
+							<td>Email:</td>
+							<td><input type="text" name="EmailAddress" value="@Model.EmailAddress" /></td>
+					</tr>
+					<tr>
+							<td>Title:</td>
+							<td><input type="text" name="Title" value="@Model.Title"/></td>
+					</tr>
+					<tr>
+							<td>Allmänt:</td>
+							<td><input type="text" name="Summary" value="@Model.Summary"/></td>
+					</tr>
+@*					<tr>
+							<td>Programspråk:</td>
+							<td><input type="text" name="Summary" value="@string.Join(",", Model.GetSkills("DevLanguages"))"/></td>
+					</tr>*@
+
+					<tr>
+							<td colspan="2"><input type="submit" value="Spara"/></td>
+					</tr>
+			</table>
+	</form>
+</body>
+</html>
+
