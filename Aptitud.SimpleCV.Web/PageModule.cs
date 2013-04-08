@@ -9,24 +9,39 @@ namespace Aptitud.SimpleCV.Web {
 	public class PageModule : Nancy.NancyModule {
 
 
-	private readonly Repository.IConsultantRepository _consultantRepository;
+		private readonly Repository.IConsultantRepository _consultantRepository;
 
-	public PageModule(Repository.IConsultantRepository consultantRepository) {
+		public PageModule(Repository.IConsultantRepository consultantRepository) {
 			_consultantRepository = consultantRepository;
 
 			Get["/"] = _ => "Hello Simple CV";
 
 			Get["/Preview/{Id}"] = parameters => {
-			 var consultant = _consultantRepository.Get(parameters.Id);
-			 
-			 return View["View/Preview", consultant];
-			} ;
+
+				Model.Consultant consultant = null;
+
+				try {
+					consultant = _consultantRepository.Get(parameters.Id);
+				}
+				catch (Exception ex) {
+					return ex.Message;
+				}
+
+				return View["View/Preview", consultant];
+			};
 
 			Get["/Edit/{Id}"] = parameters => {
-				var consultant = _consultantRepository.Get(parameters.Id);
+				Model.Consultant consultant = null;
+
+				try {
+					consultant = _consultantRepository.Get(parameters.Id);
+				}
+				catch (Exception ex) {
+					return ex.Message;
+				}
 
 				if (consultant == null) {
-					consultant = new Model.Consultant{
+					consultant = new Model.Consultant {
 						EmailAddress = parameters.Id
 					};
 				}
