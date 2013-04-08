@@ -9,9 +9,11 @@ namespace Aptitud.SimpleCV.Web {
 	public class PageModule : Nancy.NancyModule {
 
 
-	private readonly Repository.ConsultantRepository _consultantRepository = new Repository.ConsultantRepository();
+	private readonly Repository.IConsultantRepository _consultantRepository;
 
-		public PageModule() {
+	public PageModule(Repository.IConsultantRepository consultantRepository) {
+			_consultantRepository = consultantRepository;
+
 			Get["/"] = _ => "Hello Simple CV";
 
 			Get["/Preview/{Id}"] = parameters => {

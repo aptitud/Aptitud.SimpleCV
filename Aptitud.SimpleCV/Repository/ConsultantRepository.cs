@@ -4,37 +4,32 @@ using System.Linq;
 using System.Text;
 
 namespace Aptitud.SimpleCV.Repository {
-	public class ConsultantRepository {
+	public class ConsultantRepository : IConsultantRepository {
+
+		private readonly Raven.Client.IDocumentStore _store;
+
+		public ConsultantRepository(Raven.Client.IDocumentStore store) {
+			_store = store;
+		}
 
 		public Model.Consultant Get(string Id) {
-
 			Model.Consultant consultant = null;
 
-			using (var store = new Raven.Client.Document.DocumentStore { ConnectionStringName = "RavenHQ" }) {
-				store.Initialize();
+			using (var session = _store.OpenSession()) {
+				var consultants = session.Load<Model.Consultant>(new[] { Id });
 
-
-				using (var session = store.OpenSession()) {
-					var consultants = session.Load<Model.Consultant>(new[] { Id });
-
-					if (consultants.Length > 0) {
-						consultant = consultants[0];
-					}
+				if (consultants.Length > 0) {
+					consultant = consultants[0];
 				}
 			}
 			return consultant;
 		}
 
-
 		public Model.Consultant Save(string Id, Model.Consultant consultant) {
-			using (var store = new Raven.Client.Document.DocumentStore { ConnectionStringName = "RavenHQ" }) {
-				store.Initialize();
-
-				using (var session = store.OpenSession()) {
+				using (var session = _store.OpenSession()) {
 					session.Store(consultant, Id);
 					session.SaveChanges();
 				}
-			}
 			return consultant;
 		}
 
