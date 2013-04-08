@@ -88,6 +88,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="View\Preview.cshtml" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="View\Consultant\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

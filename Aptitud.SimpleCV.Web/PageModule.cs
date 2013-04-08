@@ -44,8 +44,12 @@ namespace Aptitud.SimpleCV.Web {
 					EmailAddress = form.EmailAddress,
 					Summary = form.Summary
 				};
-				 
-				consultant = _consultantRepository.Save(form.EmailAddress, consultant);
+				try {
+					consultant = _consultantRepository.Save(form.EmailAddress, consultant);
+				}
+				catch (Exception ex) {
+					return ex.Message;
+				}
 
 				return new RedirectResponse("/Edit/" + form.EmailAddress);
 			};
