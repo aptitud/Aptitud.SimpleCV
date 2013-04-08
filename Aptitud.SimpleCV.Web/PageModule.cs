@@ -17,28 +17,13 @@ namespace Aptitud.SimpleCV.Web {
 			Get["/"] = _ => "Hello Simple CV";
 
 			Get["/Preview/{Id}"] = parameters => {
-
-				Model.Consultant consultant = null;
-
-				try {
-					consultant = _consultantRepository.Get(parameters.Id);
-				}
-				catch (Exception ex) {
-					return ex.Message;
-				}
+				var consultant = _consultantRepository.Get(parameters.Id);
 
 				return View["View/Preview", consultant];
 			};
 
 			Get["/Edit/{Id}"] = parameters => {
-				Model.Consultant consultant = null;
-
-				try {
-					consultant = _consultantRepository.Get(parameters.Id);
-				}
-				catch (Exception ex) {
-					return ex.Message;
-				}
+				var consultant = _consultantRepository.Get(parameters.Id);
 
 				if (consultant == null) {
 					consultant = new Model.Consultant {
@@ -59,12 +44,7 @@ namespace Aptitud.SimpleCV.Web {
 					EmailAddress = form.EmailAddress,
 					Summary = form.Summary
 				};
-				try {
-					consultant = _consultantRepository.Save(form.EmailAddress, consultant);
-				}
-				catch (Exception ex) {
-					return ex.Message;
-				}
+				consultant = _consultantRepository.Save(form.EmailAddress, consultant);
 
 				return new RedirectResponse("/Edit/" + form.EmailAddress);
 			};

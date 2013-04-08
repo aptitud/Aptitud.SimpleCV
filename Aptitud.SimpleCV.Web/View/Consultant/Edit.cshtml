@@ -7,6 +7,32 @@
 </head>
 
 <body>
-Peter was here
+	<form action="/SaveConsultantInfo" method="post">
+			<table>
+					<tr>
+							<td>Förnamn:</td>
+							<td><input type="text" name="FirstName" value="@Model.FirstName" /></td>
+					</tr>
+					<tr>
+							<td>Efternamn:</td>
+							<td><input type="text" name="LastName" value="@Model.LastName" /></td>
+					</tr>
+					<tr>
+							<td>Email:</td>
+							<td><input type="text" name="EmailAddress" value="@Model.EmailAddress" /></td>
+					</tr>
+					<tr>
+							<td>Title:</td>
+							<td><input type="text" name="Title" value="@Model.Title"/></td>
+					</tr>
+					<tr>
+							<td>Allmänt:</td>
+							<td><input type="text" name="Summary" value="@Model.Summary"/></td>
+					</tr>
+					<tr>
+							<td colspan="2"><input type="submit" value="Spara"/></td>
+					</tr>
+			</table>
+	</form>
 </body>
 </html>
