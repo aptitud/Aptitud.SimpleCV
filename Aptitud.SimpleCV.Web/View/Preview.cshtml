@@ -1,11 +1,18 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Aptitud.SimpleCV.Model.Consultant>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Simple CV - Preview</title>
+    <meta charset="utf-8" />
+    <title>Simple CV - Förhandsgranska</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="~/Content/Site.css">
 </head>
+
 <body>
+<div class="preview-wrapper">
+  <div class="header-wrapper"><div class="logo"><img class="logo-image" src="~/Content/images/preview/logo-aptitud.png" title="Aptitud" /></div><div class="header">@Model.FirstName @Model.LastName</div></div>
+		
 	Konsult: @string.Format("{0} {1}", Model.FirstName, Model.LastName) <br />
 	Titel: @Model.Title<br />
 	<br />
@@ -54,6 +61,6 @@
 		<br />
 	}
 	<br />
-
+</div>
 </body>
 </html>

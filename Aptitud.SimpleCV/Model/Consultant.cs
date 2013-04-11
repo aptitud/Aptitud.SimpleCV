@@ -12,6 +12,8 @@ namespace Aptitud.SimpleCV.Model {
 			Educations = new List<Education>();
 		}
 
+		public string Id { get; set; }
+
 		private string _firstName = string.Empty;
 		public string FirstName { get { return _firstName ?? string.Empty; } set { _firstName = value; } }
 

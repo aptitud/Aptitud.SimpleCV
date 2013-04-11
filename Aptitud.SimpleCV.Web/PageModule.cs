@@ -14,7 +14,15 @@ namespace Aptitud.SimpleCV.Web {
 		public PageModule(Repository.IConsultantRepository consultantRepository) {
 			_consultantRepository = consultantRepository;
 
-			Get["/"] = _ => "Hello Simple CV";
+			Get["/"] = _ => {
+				var list = _consultantRepository.GetIds();
+				return View["View/Consultant/Index", list];
+			};
+
+			Get["/New"] = _ => {
+				return "<h1>Not done!</h1>";
+			};
+
 
 			Get["/Preview/{Id}"] = parameters => {
 				var consultant = _consultantRepository.Get(parameters.Id);

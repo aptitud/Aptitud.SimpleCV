@@ -78,6 +78,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\back-icon-48.png" />
+    <Content Include="Content\images\edit-icon-48.png" />
+    <Content Include="Content\images\edit-icon.png" />
+    <Content Include="Content\images\home-icon-48.png" />
+    <Content Include="Content\images\new-icon-48.png" />
+    <Content Include="Content\images\preview-icon-48.png" />
+    <Content Include="Content\images\preview-icon.png" />
+    <Content Include="Content\images\Preview\logo-aptitud.png" />
+    <Content Include="Content\images\up-icon-48.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +102,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="View\Consultant\Edit.cshtml" />
+    <Content Include="View\Consultant\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,6 +116,7 @@
       <Name>Aptitud.SimpleCV</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

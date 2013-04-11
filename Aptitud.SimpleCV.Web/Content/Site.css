@@ -1,0 +1,89 @@
+﻿body, input, textarea, button {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 1.2em;
+}
+
+input, textarea {
+		width:400px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+textarea {
+	height: 150px;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    max-width: 980px; /*Remove this to make it full screen*/
+    margin: 1em auto;
+}
+
+button, input[type=submit] {
+    border: 1px solid #dedede;
+		background-color: #67c655;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.header-wrapper {
+	overflow: hidden;
+}
+
+.header-wrapper .logo{
+	float: left;
+}
+
+.header-wrapper .logo .logo_image{
+	height: 50px;
+	width: 50px;
+}
+
+.header-wrapper .header {
+		float: left;
+    padding: 5px 0 20px 0;
+		font-size: 2.0em;
+		font-weight: bold;
+}
+
+ .header-wrapper .icon {
+		float: left;
+		padding-left: 10px;
+}
+
+.row {
+		overflow: hidden;
+    text-align: left;
+}
+
+.alternateRow {
+	background-color: #f2f2f2;
+}
+
+.column {
+    text-align: left;
+    margin: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        margin: .2em 0;
+    }
+
+    header {
+        text-align: center;
+        clear: both;
+    }
+}

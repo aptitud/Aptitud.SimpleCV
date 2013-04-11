@@ -1,0 +1,29 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<List<string>>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple CV</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="~/Content/Site.css">
+</head>
+
+
+<body>
+<div class="content-wrapper">
+    <div class="header-wrapper"><div class="header">Konsulter</div><div class="icon"><a href='@Url.Content("~/new/")'><img src="~/Content/images/new-icon-48.png" title="New" /></a></div></div>
+		<table>
+			@{ var alternate = "alternateRow";}
+			@foreach (var item in Model) {
+			<tr class="row @alternate">
+				<td class="column ConsultantIdColumn">@item</td>
+				<td class="column"><a href='@Url.Content("~/preview/" + item)'><img src="~/Content/images/preview-icon-48.png" title="View" /></a></td>
+				<td class="column"><a href='@Url.Content("~/edit/" + item)'><img src="~/Content/images/edit-icon-48.png" title="Edit" /></a></td>
+			</tr>  
+			@{ alternate = alternate == string.Empty ? "alternateRow" : string.Empty;}
+			}
+	</table>
+</div>
+</body>
+</html>
