@@ -23,6 +23,11 @@ namespace Aptitud.SimpleCV.Web {
 				return "<h1>Not done!</h1>";
 			};
 
+			Get["/View/{Id}"] = parameters => {
+				var consultant = _consultantRepository.Get(parameters.Id);
+
+				return View["View/Consultant/View", consultant];
+			};
 
 			Get["/Preview/{Id}"] = parameters => {
 				var consultant = _consultantRepository.Get(parameters.Id);
@@ -46,6 +51,7 @@ namespace Aptitud.SimpleCV.Web {
 				var form = this.Bind<Model.Consultant>();
 
 				var consultant = new Model.Consultant {
+					Id = form.EmailAddress,
 					FirstName = form.FirstName,
 					LastName = form.LastName,
 					Title = form.Title,

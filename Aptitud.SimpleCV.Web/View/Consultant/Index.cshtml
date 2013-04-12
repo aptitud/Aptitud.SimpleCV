@@ -14,13 +14,13 @@
 	<h1>Konsulter</h1>
 	<div id="container">
 	  <ol> 
-			@foreach (var consultant in Model) {
+			@foreach (var consultant in Model.OrderBy(p => p.FirstName).OrderBy(p => p.LastName)) {
 		  <li> 
 			  <p class="emailaddress">@consultant.EmailAddress</p> 
 				<p class="name">@consultant.FirstName @consultant.LastName</p> 
 				<p class="actions">
 					<input id="edit" type="button" value="Ändra" onclick="location.href='edit/@consultant.Id'"/>
-					<input id="view" type="button" value="Visa" onclick="location.href='preview/@consultant.Id'"/>
+					<input id="view" type="button" value="Visa" onclick="location.href='view/@consultant.Id'"/>
 				</p>
 		  </li>
 			}
