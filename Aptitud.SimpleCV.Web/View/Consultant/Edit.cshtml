@@ -1,15 +1,44 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Aptitud.SimpleCV.Model.Consultant>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Simple CV - Editera</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" href="~/Content/Site.css">
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Simple CV</title>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<link href="~/Content/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>
+
+<div id="consultant">
+	<h1>Konsult</h1>
+	<form action="/SaveConsultantInfo" method="post">
+		<fieldset>
+			<label for="firstname">Förnamn:</label>
+			<input type="text" id="firstname" value="@Model.FirstName" placeholder="Konsultens förnamn" />
+
+			<label for="lastname">Efternamn:</label>
+			<input type="text" id="lastname" value="@Model.LastName" placeholder="Konsultens efternamn" />
+			
+			<label for="email">Email:</label>
+			<input type="email" id="email" value="@Model.EmailAddress" placeholder="Konsultens email" />
+
+			<label for="title">Titel:</label>
+			<input type="text" id="title" value="@Model.Title" placeholder="Konsultens titel" />
+			
+			<label for="info">Allmänt:</label>
+			<textarea id="info" placeholder="Allmänt information om konsulten">@Model.Summary</textarea>
+			
+			<input type="submit" value="Spara" />
+			
+		</fieldset>
+	</form>
+</div>
+
+</body>
+</html>
+
+@*<body>
 <div class="content-wrapper">
   <div class="header-wrapper"><div class="header">@Model.Id</div><div class="icon"><a href='@Url.Content("~/")'><img src="~/Content/images/home-icon-48.png" title="Home" /></a></div></div>
 	<form action="/SaveConsultantInfo" method="post">
@@ -42,4 +71,4 @@
 	</form>
 </div>
 </body>
-</html>
+</html>*@

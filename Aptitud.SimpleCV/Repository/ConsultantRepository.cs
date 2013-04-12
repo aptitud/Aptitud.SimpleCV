@@ -34,6 +34,15 @@ namespace Aptitud.SimpleCV.Repository {
 			return consultant;
 		}
 
+		public List<Model.Consultant> GetAll() {
+			List<Model.Consultant> consultants = new List<Model.Consultant>();
+
+			using (var session = _store.OpenSession()) {
+				consultants = session.Query<Model.Consultant>().ToList();
+			}
+			return consultants;
+		}
+
 		public Model.Consultant Save(string Id, Model.Consultant consultant) {
 				using (var session = _store.OpenSession()) {
 					session.Store(consultant, Id);

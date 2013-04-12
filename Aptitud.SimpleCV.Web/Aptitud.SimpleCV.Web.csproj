@@ -88,6 +88,7 @@
     <Content Include="Content\images\Preview\logo-aptitud.png" />
     <Content Include="Content\images\up-icon-48.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

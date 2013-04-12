@@ -15,7 +15,7 @@ namespace Aptitud.SimpleCV.Web {
 			_consultantRepository = consultantRepository;
 
 			Get["/"] = _ => {
-				var list = _consultantRepository.GetIds();
+				var list = _consultantRepository.GetAll();
 				return View["View/Consultant/Index", list];
 			};
 
