@@ -1,0 +1,31 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple CV</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+        <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+
+    <body>
+        <div class="view-area">
+        <h1>Skapa ny profil</h1>
+  
+            <div class="action-area">
+                <fieldset>
+                    <form action="@Model.Action" method="@Model.Method">
+                        <input type="hidden" name="CommandId" value="@Model.CommandId"/>
+                        <label>Förnamn: <input type="text" name="FirstName"/></label>
+                        <br/>
+                        <label>Efternamn: <input type="text" name="LastName"/></label>
+                        <br/>
+                        <label>Email: <input type="email" name="EmailAddress"/></label>
+                        <br/>
+                        <input type="submit" value="Spara"/>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </body>
+</html>
