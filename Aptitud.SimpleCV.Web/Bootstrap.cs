@@ -1,14 +1,8 @@
-﻿using Nancy;
+﻿using Aptitud.SimpleCV.Web.Services;
+using Aptitud.SimpleCV.Web.Services.Raven;
+using Nancy;
 using Raven.Client;
 using Raven.Client.Document;
-using System.Collections.Generic;
-
-using Nancy.Diagnostics;
-using Nancy.Security;
-using Nancy.Session;
-using Nancy.TinyIoc;
-using Nancy.ViewEngines;
-using Nancy.ViewEngines.Razor;
 
 namespace Aptitud.SimpleCV.Web {
 	public class Bootstrap : DefaultNancyBootstrapper {
@@ -24,6 +18,7 @@ namespace Aptitud.SimpleCV.Web {
 			var documentStore = CreateDocumentStore();
 			container.Register(documentStore);
 			container.Register<Repository.IConsultantRepository>(new Repository.ConsultantRepository(documentStore));
+		    container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider());
 		}
 
 		protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines) {
