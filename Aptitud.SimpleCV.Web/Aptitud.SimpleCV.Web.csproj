@@ -117,6 +117,7 @@
     <Content Include="Content\images\up-icon-48.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="ConnectionStrings.prod.config" />
     <None Include="View\profile\Create.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
