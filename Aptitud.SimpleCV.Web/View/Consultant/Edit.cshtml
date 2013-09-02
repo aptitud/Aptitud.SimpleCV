@@ -13,25 +13,26 @@
 <div id="consultant">
 	<h1>Konsult</h1>
 	<form action="/SaveConsultantInfo" method="post">
-		<fieldset>
-			<label for="firstname">Förnamn:</label>
-			<input type="text" id="firstname" name="FirstName" value="@Model.FirstName" placeholder="Konsultens förnamn" />
+	    <fieldset>
+	        <input type="hidden" name="Id" value="@Model.Id"/>
+	        <label for="firstname">Förnamn:</label>
+	        <input type="text" id="firstname" name="FirstName" value="@Model.FirstName" placeholder="Konsultens förnamn" />
 
-			<label for="lastname">Efternamn:</label>
-			<input type="text" id="lastname" name="LastName" value="@Model.LastName" placeholder="Konsultens efternamn" />
+	        <label for="lastname">Efternamn:</label>
+	        <input type="text" id="lastname" name="LastName" value="@Model.LastName" placeholder="Konsultens efternamn" />
 			
-			<label for="emailaddress">Email:</label>
-			<input type="email" id="emailaddress" name="EmailAddress" value="@Model.EmailAddress" placeholder="Konsultens email" />
+	        <label for="emailaddress">Email:</label>
+	        <input type="email" id="emailaddress" name="EmailAddress" value="@Model.EmailAddress" placeholder="Konsultens email" />
 
-			<label for="title">Titel:</label>
-			<input type="text" id="title" name="Title" value="@Model.Title" placeholder="Konsultens titel" />
+	        <label for="title">Titel:</label>
+	        <input type="text" id="title" name="Title" value="@Model.Title" placeholder="Konsultens titel" />
 			
-			<label for="summary">Allmänt:</label>
-			<textarea id="summary" name="Summary" placeholder="Allmänt information om konsulten">@Model.Summary</textarea>
+	        <label for="summary">Allmänt:</label>
+	        <textarea id="summary" name="Summary" placeholder="Allmänt information om konsulten">@Model.Summary</textarea>
 			
-			<input type="submit" value="Spara" />
+	        <input type="submit" value="Spara" />
 			
-		</fieldset>
+	    </fieldset>
 	</form>
 </div>
 

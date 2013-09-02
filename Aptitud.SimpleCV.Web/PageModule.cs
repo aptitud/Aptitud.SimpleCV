@@ -1,17 +1,15 @@
-﻿using Nancy.ModelBinding;
+﻿using System.Linq;
+using Aptitud.SimpleCV.Model;
+using Aptitud.SimpleCV.Web.Services;
+using Nancy.ModelBinding;
 using Nancy.Responses;
 
 namespace Aptitud.SimpleCV.Web {
-	public class PageModule : Nancy.NancyModule {
-
-
-		private readonly Repository.IConsultantRepository _consultantRepository;
-
-		public PageModule(Repository.IConsultantRepository consultantRepository) {
-			_consultantRepository = consultantRepository;
+	public class PageModule : RavenModule {
+		public PageModule(ISessionProvider sessionProvider):base(sessionProvider, ""){
 
 			Get["/"] = _ => {
-				var list = _consultantRepository.GetAll();
+				var list = RavenSession.Query<Consultant>().ToList();
 				return View["View/Consultant/Index", list];
 			};
 
@@ -20,19 +18,19 @@ namespace Aptitud.SimpleCV.Web {
 			};
 
 			Get["/View/{Id}"] = parameters => {
-				var consultant = _consultantRepository.Get(parameters.Id);
+				var consultant = RavenSession.Load<Consultant>(parameters.Id.ToString());
 
 				return View["View/Consultant/View", consultant];
 			};
 
 			Get["/Preview/{Id}"] = parameters => {
-				var consultant = _consultantRepository.Get(parameters.Id);
+				var consultant = RavenSession.Load<Consultant>(parameters.Id.ToString());
 
 				return View["View/Preview", consultant];
 			};
 
 			Get["/Edit/{Id}"] = parameters => {
-				var consultant = _consultantRepository.Get(parameters.Id);
+				var consultant = RavenSession.Load<Consultant>(parameters.Id.ToString());
 
 				if (consultant == null) {
 					consultant = new Model.Consultant {
@@ -43,22 +41,16 @@ namespace Aptitud.SimpleCV.Web {
 				return View["View/Consultant/Edit", consultant];
 			};
 
-			Post["/SaveConsultantInfo"] = parameters => {
-				var form = this.Bind<Model.Consultant>();
+		    Post["/SaveConsultantInfo"] = parameters =>
+		        {
+		            string id = Request.Form.Id.ToString();
 
-				var consultant = new Model.Consultant {
-					Id = form.EmailAddress,
-					FirstName = form.FirstName,
-					LastName = form.LastName,
-					Title = form.Title,
-					EmailAddress = form.EmailAddress,
-					Summary = form.Summary
-				};
-				consultant = _consultantRepository.Save(form.EmailAddress, consultant);
+		            var consultant = RavenSession.Load<Consultant>(id);
 
-				return new RedirectResponse("/Edit/" + form.EmailAddress);
-			};
+		            this.BindTo(consultant, "Id");
 
+		            return new RedirectResponse("/Edit/" + consultant.Id);
+		        };
 		}
 	}
 }

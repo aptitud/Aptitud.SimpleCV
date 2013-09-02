@@ -7,17 +7,17 @@ using Raven.Client.Document;
 namespace Aptitud.SimpleCV.Web {
 	public class Bootstrap : DefaultNancyBootstrapper {
 		
-		private IDocumentStore CreateDocumentStore() {
-			var documentStore = new DocumentStore { ConnectionStringName = "RavenHQ" };
-			documentStore.Initialize();
+        //private IDocumentStore CreateDocumentStore() {
+        //    var documentStore = new DocumentStore { ConnectionStringName = "RavenHQ" };
+        //    documentStore.Initialize();
 
-			return documentStore;
-		}
+        //    return documentStore;
+        //}
 
 		protected override void ConfigureApplicationContainer(Nancy.TinyIoc.TinyIoCContainer container) {
-			var documentStore = CreateDocumentStore();
-			container.Register(documentStore);
-			container.Register<Repository.IConsultantRepository>(new Repository.ConsultantRepository(documentStore));
+            //var documentStore = CreateDocumentStore();
+            //container.Register(documentStore);
+            //container.Register<Repository.IConsultantRepository>(new Repository.ConsultantRepository(documentStore));
 		    container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider());
 		}
 
