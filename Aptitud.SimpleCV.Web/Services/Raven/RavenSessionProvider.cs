@@ -15,7 +15,7 @@ namespace Aptitud.SimpleCV.Web.Services.Raven
                         DataDirectory = @"App_Data\Raven",
                     };
                 
-                if (ConfigurationManager.ConnectionStrings["RavenHQ"] != null)
+                if (ConfigurationManager.ConnectionStrings["RavenHQ"] != null && string.IsNullOrWhiteSpace(ConfigurationManager.ConnectionStrings["RavenHQ"].ConnectionString) == false)
                 {
                     store.ConnectionStringName = "RavenHQ";
                 }
