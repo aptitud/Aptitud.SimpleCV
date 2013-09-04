@@ -1,0 +1,66 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Aptitud.SimpleCV.Model.Consultant>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple CV - Förhandsgranska</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="~/Content/Site.css">
+</head>
+
+<body>
+<div class="preview-wrapper">
+  <div class="header-wrapper"><div class="logo"><img class="logo-image" src="~/Content/images/preview/logo-aptitud.png" title="Aptitud" /></div><div class="header">@Model.FirstName @Model.LastName</div></div>
+		
+	Konsult: @string.Format("{0} {1}", Model.FirstName, Model.LastName) <br />
+	Titel: @Model.Title<br />
+	<br />
+	Allmänt : @Model.Summary<br />
+	<br />
+	Programspråk : @foreach( var item in Model.GetSkills("DevLanguages")) {
+		@item; <br />
+	}
+	<br />
+	Metoder : @foreach (var item in Model.GetSkills("Methods")) {
+		@item; <br />
+	}
+	<br />
+	Ramverk : @foreach (var item in Model.GetSkills("Frameworks")) {
+		@item; <br />
+	}
+	<br />
+	<br />
+	Utbildning: @foreach (var item in Model.Educations) {
+		<div>Name: @item.Name;</div><br />
+		<div>Beskrivning: @item.Description;</div><br />
+		<div>Start: @item.StartDate; - Slut: @item.EndDate;</div><br />
+		<br />
+	}
+	<br />
+
+	Projekt: @foreach (var item in Model.Projects) {
+		<div>Name: @item.Name;</div><br />
+		<div>Kund: @item.Customer;</div><br />
+		<div>Start: @item.StartDate; - Slut: @item.EndDate;</div><br />
+		<div>Beskrivning: @item.Description;</div><br />
+		<div>Programspråk :</div> 
+		@foreach (var skill in Model.GetSkills("DevLanguages")) {
+			@skill; <br />
+		}
+		<br />
+		<div>Metoder :</div> 
+		@foreach (var skill in Model.GetSkills("Methods")) {
+			@skill; <br />
+		}
+		<br />
+		<div>Ramverk :</div> 
+		@foreach (var skill in Model.GetSkills("Frameworks")) {
+			@skill; <br />
+		}
+		<br />
+	}
+	<br />
+</div>
+</body>
+</html>

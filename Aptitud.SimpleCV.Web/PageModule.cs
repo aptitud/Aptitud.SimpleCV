@@ -3,15 +3,18 @@ using Aptitud.SimpleCV.Model;
 using Aptitud.SimpleCV.Web.Services;
 using Nancy.ModelBinding;
 using Nancy.Responses;
+using SimpleAuthentication.Core.Tracing;
 
 namespace Aptitud.SimpleCV.Web {
 	public class PageModule : RavenModule {
 		public PageModule(ISessionProvider sessionProvider):base(sessionProvider, ""){
 
-			Get["/"] = _ => {
-				var list = RavenSession.Query<Consultant>().ToList();
-				return View["View/Consultant/Index", list];
-			};
+
+
+            //Get["/"] = _ => {
+            //    var list = RavenSession.Query<Consultant>().ToList();
+            //    return View["View/Consultant/Index", list];
+            //};
 
 			Get["/New"] = _ => {
 				return "<h1>Not done!</h1>";
