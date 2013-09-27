@@ -4,12 +4,14 @@
         <title>Start</title>
 		<link rel="stylesheet" href="/Content/Site.css">
     </head>
-    <body>
+    <body class="aptitude-orange">
 		<div id="header">
             <span id="authentication-panel">@Partial['_authenticationPanel.sshtml']</span>
 		</div>
         <div id="container">
             
+            <img src="/Content/images/aptitudlogo.png" class="center" />
+
             @If.HasError
                 <h2>Error Information</h2>
                 <p>Message: @Model.ErrorMessage</p>

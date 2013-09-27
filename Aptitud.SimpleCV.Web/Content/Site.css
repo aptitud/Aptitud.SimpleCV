@@ -3,6 +3,15 @@
     font-size: 1.2em;
 }
 
+.aptitude-orange {
+    background: #ee5555;
+}
+
+.center {
+    vertical-align: central;
+    text-align: center;
+}
+
 input, textarea {
 		width:400px;
     -moz-border-radius: 5px;
