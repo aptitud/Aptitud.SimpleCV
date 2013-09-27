@@ -1,5 +1,7 @@
 ﻿<div class="consultants view">
     <div class="container">
+        <button type="button" class="btn bt-default" data-toggle="modal" data-target="#newConsult">Ny Konsult</button>
+        <br />
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" data-ng-repeat="consult in consultants | orderBy:'LastName'">
                 <div class="panel panel-primary">
@@ -14,12 +16,52 @@
                         </div>
                     </div>
                     <div class="panel-footer text-right">
-                        <button type="button" title="Ändra" class="btn btn-default btn-md"><span class="glyphicon glyphicon-pencil"></span></button>
-                        <button type="button" title="Generera PDF" class="btn btn-default btn-md"><span class="glyphicon glyphicon-flash"></span></button>
-                        <button type="button" title="Ta bort" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span></button>
+                        <button type="button" title="Ändra" class="btn btn-default btn-md"><span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Ändra</span></button>
+                        <button type="button" title="Generera PDF" class="btn btn-default btn-md"><span class="glyphicon glyphicon-flash"></span><span class="hidden-xs"> PDF</span></button>
+                        <button type="button" title="Ta bort" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Ta bort</span></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="newConsult">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Lägg till konsult</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="newColnsultFirstName" class="col-lg-2 control-label">Förnamn</label>
+                            <div class="col-lg-10">
+                                <input type="text" data-ng-model="newConsult.FirstName" id="newConsultFirstName" class="form-control" placeholder="Förnamn">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newConsultLastName" class="col-lg-2 control-label">Efternamn</label>
+                            <div class="col-lg-10">
+                                <input type="text" data-ng-model="newConsult.LastName" id="newConsultLastName" class="form-control" placeholder="Efternamn">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newConsultEmailAddress" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <input type="text" data-ng-model="newConsult.EmailAddress" id="newConsultEmailAddress" class="form-control" placeholder="Mail-adress">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-ng-disabled="!newConsult.FirstName || !newConsult.LastName || !newConsult.EmailAddress" data-ng-click="">Lägg till</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

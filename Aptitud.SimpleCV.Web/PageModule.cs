@@ -8,7 +8,7 @@ using SimpleAuthentication.Core.Tracing;
 
 namespace Aptitud.SimpleCV.Web {
 	public class PageModule : RavenModule {
-		public PageModule(ISessionProvider sessionProvider):base(sessionProvider, ""){
+		public PageModule(ISessionProvider sessionProvider):base(sessionProvider, "/profiler"){
 
             Get["/"] = _ => {
                 return View["/SimpleCV.html"];

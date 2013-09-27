@@ -8,15 +8,10 @@ using Nancy.Responses;
 using Nancy;
 
 namespace Aptitud.SimpleCV.Web {
-    public class ApiModule : RavenModule {
+    public class PostModule : RavenModule {
 
-        public ApiModule(ISessionProvider sessionProvider)
+        public PostModule(ISessionProvider sessionProvider)
             : base(sessionProvider, "/api") {
-            Get["/consultants"] = _ => {
-                var list = RavenSession.Query<Consultant>().ToList();
-
-                return Response.AsJson(list);
-            };
         }
     }
 }

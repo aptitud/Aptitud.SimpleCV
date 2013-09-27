@@ -179,9 +179,10 @@
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
     <Compile Include="Helpers\IndexViewModel.cs" />
+    <Compile Include="Modules\Api\PostModule.cs" />
     <Compile Include="Modules\ManageProfileModule.cs" />
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Modules\Api\ApiModule.cs" />
+    <Compile Include="Modules\Api\GetModule.cs" />
     <Compile Include="Modules\ClaimsConstants.cs" />
     <Compile Include="Modules\EditorModule.cs" />
     <Compile Include="Modules\RavenModule.cs" />
