@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using Aptitud.SimpleCV.Web.Helpers;
 using Aptitud.SimpleCV.Web.Services;
+using Aptitud.SimpleCV.Web.Services.Nancy;
 using Aptitud.SimpleCV.Web.Services.Raven;
 using Nancy;
+using Nancy.Authentication.Forms;
 using Nancy.SimpleAuthentication;
 
 namespace Aptitud.SimpleCV.Web
@@ -17,6 +19,7 @@ namespace Aptitud.SimpleCV.Web
 
             container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider());
             container.Register<IAuthenticationCallbackProvider>((cContainer, overloads) => new AuthenticationCallbackProvider(cContainer.Resolve<ISessionProvider>()));
+            container.Register<IUserMapper>((cContainer, overloads) => new RavenUserMapper(container.Resolve<ISessionProvider>()));
         }
 
         protected override IEnumerable<Func<Assembly, bool>> AutoRegisterIgnoredAssemblies
@@ -37,6 +40,11 @@ namespace Aptitud.SimpleCV.Web
                                                    Nancy.Bootstrapper.IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
+            FormsAuthentication.Enable(pipelines, new FormsAuthenticationConfiguration
+                {
+                    RedirectUrl = "~/",
+                    UserMapper = container.Resolve<IUserMapper>(),
+                });
 
             StaticConfiguration.EnableRequestTracing = true;
             StaticConfiguration.DisableErrorTraces = false;

@@ -1,9 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
+using Aptitud.SimpleCV.Web.Models;
 using Aptitud.SimpleCV.Web.Services;
 using Nancy;
+using Nancy.Authentication.Forms;
+using Nancy.Cookies;
 using Nancy.SimpleAuthentication;
 using Nancy.Security;
+using Raven.Database.Util;
 
 namespace Aptitud.SimpleCV.Web.Helpers
 {
@@ -20,16 +24,14 @@ namespace Aptitud.SimpleCV.Web.Helpers
         {
             using (var session = _sessionProvider.GetSession())
             {
-                var loginKey = string.Format("{0}_{1}", model.AuthenticatedClient.ProviderName,
-                                             model.AuthenticatedClient.UserInformation.Id);
-                
-                var login = session.Load<UserLogin>(loginKey);
+                var login = session.Query<UserLogin>().
+                                   FirstOrDefault(x => x.Providers.Any(y => y.IdentityKey == model.AuthenticatedClient.UserInformation.Id));
 
                 if(login == null)
                 {
                     login = new UserLogin
                         {
-                            Id = loginKey,
+                            Id = Guid.NewGuid().ToString(),
                             Name = model.AuthenticatedClient.UserInformation.Name,
                             ImageUrl = model.AuthenticatedClient.UserInformation.Picture,
                             Email = model.AuthenticatedClient.UserInformation.Email,
@@ -38,16 +40,19 @@ namespace Aptitud.SimpleCV.Web.Helpers
                     session.Store(login);
                 }
 
+                if (login.ContainsProvider(model.AuthenticatedClient.ProviderName) == false)
+                {
+                    login.Providers.Add(new UserLogin.LoginProvider
+                        {
+                            Name = model.AuthenticatedClient.ProviderName,
+                            IdentityKey = model.AuthenticatedClient.UserInformation.Id,
+                        });
+                }
+                    
                 login.LoginAt(DateTime.UtcNow);
                 session.SaveChanges();
 
-                
-                if (login.IsAuthorized())
-                    return nancyModule.Response.AsRedirect("/");
-                else
-                    return nancyModule.Response.AsRedirect("/");
-
-                
+                return nancyModule.LoginAndRedirect(Guid.Parse(login.Id));
             }
         }
 
@@ -59,32 +64,6 @@ namespace Aptitud.SimpleCV.Web.Helpers
             };
 
             return nancyModule.View["index", model];
-        }
-    }
-
-    public class UserLogin
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string ImageUrl { get; set; }
-        public string Email { get; set; }
-        public DateTime Created { get; set; }
-
-        public List<DateTime> LoggedInAt { get; set; }
-
-        public UserLogin()
-        {
-            LoggedInAt = new List<DateTime>();
-        }
-
-        public void LoginAt(DateTime timestamp)
-        {
-            LoggedInAt.Add(timestamp);
-        }
-
-        public bool IsAuthorized()
-        {
-            return Email.EndsWith("@aptitud.se", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
