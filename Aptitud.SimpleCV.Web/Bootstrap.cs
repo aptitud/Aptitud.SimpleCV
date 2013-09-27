@@ -56,6 +56,12 @@ namespace Aptitud.SimpleCV.Web
 
             nancyConventions.StaticContentsConventions.Add(
                 Nancy.Conventions.StaticContentConventionBuilder.AddDirectory("/Content"));
+            nancyConventions.StaticContentsConventions.Add(
+                Nancy.Conventions.StaticContentConventionBuilder.AddDirectory("/Views"));
+            nancyConventions.StaticContentsConventions.Add(
+                Nancy.Conventions.StaticContentConventionBuilder.AddDirectory("/Scripts"));
+            nancyConventions.StaticContentsConventions.Add(
+                Nancy.Conventions.StaticContentConventionBuilder.AddDirectory("/App"));
         }
     }
 }

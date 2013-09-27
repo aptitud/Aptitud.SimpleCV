@@ -131,6 +131,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\App.js" />
+    <Content Include="App\Controllers\ConsultantIndexController.js" />
+    <Content Include="App\Controllers\NavbarController.js" />
+    <Content Include="App\Services\ConsultantService.js" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\687474703a2f2f692e696d6775722e636f6d2f597643617a2e706e67.png" />
     <Content Include="Content\images\back-icon-48.png" />
     <Content Include="Content\images\edit-icon-48.png" />
@@ -143,12 +152,28 @@
     <Content Include="Content\images\up-icon-48.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="SimpleCV.html" />
     <Content Include="Views\AuthenticateCallback.cshtml" />
+    <Content Include="Views\Consultant\index.html" />
     <Content Include="Views\index.sshtml" />
     <Content Include="system.diagnostics.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Views\profile\Create.cshtml" />
+    <Content Include="Views\Sales\index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -160,6 +185,7 @@
     <Compile Include="HomeModule.cs" />
     <Compile Include="ManageProfileModule.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Modules\Api\ApiModule.cs" />
     <Compile Include="Modules\EditorModule.cs" />
     <Compile Include="PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

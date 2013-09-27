@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html lang="en" data-ng-app="simpleCV">
+<head>
+    <meta charset="utf-8">
+    <title>Simple CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <!--<link href="Content/bootstrap-theme.css" rel="stylesheet" />-->
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav nav-pills" data-ng-controller="NavbarController">
+                    <li data-ng-class="{'active':getClass('/consultants')}"><a href="#/consultants">Konsulter</a></li>
+                    <li data-ng-class="{'active':getClass('/sales')}"><a href="#/sales">Säljare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-view="" class="container"></div>
+
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/NavbarController.js"></script>
+    <script src="app/controllers/ConsultantIndexController.js"></script>
+    <script src="app/services/ConsultantService.js"></script>
+
+
+</body>
+</html>

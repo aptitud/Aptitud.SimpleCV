@@ -9,12 +9,9 @@ namespace Aptitud.SimpleCV.Web {
 	public class PageModule : RavenModule {
 		public PageModule(ISessionProvider sessionProvider):base(sessionProvider, ""){
 
-
-
-            //Get["/"] = _ => {
-            //    var list = RavenSession.Query<Consultant>().ToList();
-            //    return View["View/Consultant/Index", list];
-            //};
+            Get["/"] = _ => {
+                return View["/SimpleCV.html"];
+            };
 
 			Get["/New"] = _ => {
 				return "<h1>Not done!</h1>";
