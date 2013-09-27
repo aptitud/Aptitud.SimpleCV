@@ -141,6 +141,7 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\687474703a2f2f692e696d6775722e636f6d2f597643617a2e706e67.png" />
+    <Content Include="Content\images\aptitudlogo.png" />
     <Content Include="Content\images\back-icon-48.png" />
     <Content Include="Content\images\edit-icon-48.png" />
     <Content Include="Content\images\edit-icon.png" />
