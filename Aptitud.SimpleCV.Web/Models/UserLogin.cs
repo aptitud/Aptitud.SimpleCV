@@ -26,11 +26,6 @@ namespace Aptitud.SimpleCV.Web.Models
             LoggedInAt.Add(timestamp);
         }
 
-        public bool IsAuthorized()
-        {
-            return Email.EndsWith("@aptitud.se", StringComparison.InvariantCultureIgnoreCase);
-        }
-
         public bool ContainsProvider(string providerName)
         {
             return Providers.Any(x => x.Name == providerName);

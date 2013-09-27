@@ -183,10 +183,12 @@
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
     <Compile Include="Helpers\IndexViewModel.cs" />
     <Compile Include="HomeModule.cs" />
-    <Compile Include="ManageProfileModule.cs" />
+    <Compile Include="Modules\ManageProfileModule.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Modules\Api\ApiModule.cs" />
+    <Compile Include="Modules\ClaimsConstants.cs" />
     <Compile Include="Modules\EditorModule.cs" />
+    <Compile Include="Modules\VisitorModule.cs" />
     <Compile Include="PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenModule.cs" />

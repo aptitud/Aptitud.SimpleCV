@@ -4,14 +4,12 @@ using Nancy.Security;
 
 namespace Aptitud.SimpleCV.Web.Modules
 {
-    public class EditorModule : RavenModule
+    public abstract class EditorModule : RavenModule
     {
-        public EditorModule(ISessionProvider sessionProvider) : base(sessionProvider, "/edit")
+        protected EditorModule(ISessionProvider sessionProvider, string modulePath) : base(sessionProvider, modulePath)
         {
             this.RequiresAuthentication();
-            this.RequiresClaims(new[] {"Editor"});
-
-            Get["/"] = parameters => "Kalle";
+            this.RequiresClaims(new[] {ClaimsConstants.Editor});
         }
     }
 }

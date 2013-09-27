@@ -4,9 +4,9 @@ using Aptitud.SimpleCV.Web.Services;
 using Nancy;
 using Nancy.ModelBinding;
 
-namespace Aptitud.SimpleCV.Web
+namespace Aptitud.SimpleCV.Web.Modules
 {
-    public class ManageProfileModule : RavenModule
+    public class ManageProfileModule : EditorModule
     {
         public ManageProfileModule(ISessionProvider sessionProvider) : base(sessionProvider, "/manage/profile")
         {

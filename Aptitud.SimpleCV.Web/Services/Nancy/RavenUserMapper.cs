@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Aptitud.SimpleCV.Web.Models;
+using Aptitud.SimpleCV.Web.Modules;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
@@ -24,7 +25,11 @@ namespace Aptitud.SimpleCV.Web.Services.Nancy
                 if (login == null)
                     return null;
 
-                return CvUser.Create(login);
+                var claims = new List<string>(new[] {ClaimsConstants.Visitor});
+                if(login.Email.EndsWith("@aptitud.se"))
+                    claims.Add(ClaimsConstants.Editor);
+
+                return CvUser.Create(login, claims);
             }
         }
     }
@@ -34,12 +39,12 @@ namespace Aptitud.SimpleCV.Web.Services.Nancy
         public string UserName { get; private set; }
         public IEnumerable<string> Claims { get; private set; }
 
-        public static CvUser Create(UserLogin login)
+        public static CvUser Create(UserLogin login, IEnumerable<string> claims)
         {
             return new CvUser
                 {
                     UserName = login.Email,
-                    Claims = new[]{"Editor"},
+                    Claims = claims,
                 };
         }
     }

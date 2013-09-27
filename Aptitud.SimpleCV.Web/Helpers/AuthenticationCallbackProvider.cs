@@ -4,10 +4,7 @@ using Aptitud.SimpleCV.Web.Models;
 using Aptitud.SimpleCV.Web.Services;
 using Nancy;
 using Nancy.Authentication.Forms;
-using Nancy.Cookies;
 using Nancy.SimpleAuthentication;
-using Nancy.Security;
-using Raven.Database.Util;
 
 namespace Aptitud.SimpleCV.Web.Helpers
 {
