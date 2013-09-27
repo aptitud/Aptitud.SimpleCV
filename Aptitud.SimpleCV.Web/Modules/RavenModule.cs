@@ -3,7 +3,7 @@ using Aptitud.SimpleCV.Web.Services;
 using Nancy;
 using Raven.Client;
 
-namespace Aptitud.SimpleCV.Web
+namespace Aptitud.SimpleCV.Web.Modules
 {
     public abstract class RavenModule : NancyModule
     {

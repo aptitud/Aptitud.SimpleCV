@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Aptitud.SimpleCV.Model;
+using Aptitud.SimpleCV.Web.Modules;
 using Aptitud.SimpleCV.Web.Services;
 using Nancy.ModelBinding;
 using Nancy.Responses;

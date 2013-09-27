@@ -29,23 +29,8 @@ namespace Aptitud.SimpleCV.Web.Services.Nancy
                 if(login.Email.EndsWith("@aptitud.se"))
                     claims.Add(ClaimsConstants.Editor);
 
-                return CvUser.Create(login, claims);
+                return AuthenticatedUser.Create(login, claims);
             }
-        }
-    }
-
-    public class CvUser : IUserIdentity
-    {
-        public string UserName { get; private set; }
-        public IEnumerable<string> Claims { get; private set; }
-
-        public static CvUser Create(UserLogin login, IEnumerable<string> claims)
-        {
-            return new CvUser
-                {
-                    UserName = login.Email,
-                    Claims = claims,
-                };
         }
     }
 }
