@@ -67,6 +67,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.Authentication.Forms">
+      <HintPath>..\packages\Nancy.Authentication.Forms.0.18.0\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy.Hosting.Aspnet, Version=0.18.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.Hosting.Aspnet.0.18.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
@@ -171,6 +174,7 @@
     <Content Include="Views\Consultant\Edit.cshtml" />
     <Content Include="Views\Consultant\Index.cshtml" />
     <Content Include="Views\Consultant\View.cshtml" />
+    <Content Include="Views\_authenticationPanel.sshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,9 +202,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58579</DevelopmentServerPort>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>7000</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:7000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

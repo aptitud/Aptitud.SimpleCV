@@ -87,3 +87,7 @@ button, input[type=submit] {
         clear: both;
     }
 }
+
+#authentication-panel {
+    float: right;
+}

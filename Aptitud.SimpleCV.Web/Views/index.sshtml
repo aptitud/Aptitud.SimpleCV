@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
-        <title>Login Page</title>
-        <link rel="stylesheet" type="text/css" href="/Content/main.css"/>
+        <title>Start</title>
+		<link rel="stylesheet" href="/Content/Site.css">
     </head>
     <body>
 		<div id="header">
-                    <a href="/authentication/redirect/google"><img src="/Content/images/687474703a2f2f692e696d6775722e636f6d2f597643617a2e706e67.png" alt="Login with your Google account."/></a>
+            <span id="authentication-panel">@Partial['_authenticationPanel.sshtml']</span>
 		</div>
         <div id="container">
             

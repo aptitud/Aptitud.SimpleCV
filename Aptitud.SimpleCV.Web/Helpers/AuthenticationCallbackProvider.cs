@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Aptitud.SimpleCV.Web.Services;
 using Nancy;
 using Nancy.SimpleAuthentication;
+using Nancy.Security;
 
 namespace Aptitud.SimpleCV.Web.Helpers
 {
@@ -21,7 +22,9 @@ namespace Aptitud.SimpleCV.Web.Helpers
             {
                 var loginKey = string.Format("{0}_{1}", model.AuthenticatedClient.ProviderName,
                                              model.AuthenticatedClient.UserInformation.Id);
+                
                 var login = session.Load<UserLogin>(loginKey);
+
                 if(login == null)
                 {
                     login = new UserLogin
@@ -38,10 +41,13 @@ namespace Aptitud.SimpleCV.Web.Helpers
                 login.LoginAt(DateTime.UtcNow);
                 session.SaveChanges();
 
+                
                 if (login.IsAuthorized())
                     return nancyModule.Response.AsRedirect("/");
                 else
                     return nancyModule.Response.AsRedirect("/");
+
+                
             }
         }
 
@@ -63,6 +69,7 @@ namespace Aptitud.SimpleCV.Web.Helpers
         public string ImageUrl { get; set; }
         public string Email { get; set; }
         public DateTime Created { get; set; }
+
         public List<DateTime> LoggedInAt { get; set; }
 
         public UserLogin()
