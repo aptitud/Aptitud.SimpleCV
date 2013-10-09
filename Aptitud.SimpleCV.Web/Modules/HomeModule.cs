@@ -1,4 +1,8 @@
-﻿using Nancy;
+﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using Aptitud.SimpleCV.Web.ViewModels;
+using Nancy;
 
 namespace Aptitud.SimpleCV.Web.Modules
 {
@@ -6,7 +10,42 @@ namespace Aptitud.SimpleCV.Web.Modules
     {
         public HomeModule()
         {
-            Get["/"] = parameters => View["Index"];
+            After += ctx =>
+                {
+
+                    var singlePage = ctx.NegotiationContext.DefaultModel as IHaveMainMenu;
+                    if(singlePage == null)
+                        return;
+
+                    var mainMenu = new List<LinkItemViewModel>
+                        {
+                            new LinkItemViewModel
+                                {
+                                    Text = "Titta",
+                                    Path = "/view/",
+                                },
+                        };
+
+
+                    if (ctx.CurrentUser != null)
+                    {
+                        mainMenu.Add(new LinkItemViewModel
+                            {
+                                Text = "Redigera",
+                                Path = "/edit/",
+                            });
+                    }
+
+                    mainMenu.Add(new LinkItemViewModel
+                        {
+                            Text = "Om",
+                            Path = "/about/",
+                        });
+
+                    singlePage.MainMenu = mainMenu;
+                };
+
+            Get["/"] = parameters => View["Index", new HomePageViewModel()];
         }
     }
 }

@@ -195,6 +195,10 @@
     <Compile Include="Services\Nancy\AuthenticatedUser.cs" />
     <Compile Include="Services\Nancy\RavenUserMapper.cs" />
     <Compile Include="Services\Raven\RavenSessionProvider.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\LinkItemViewModel.cs" />
+    <Compile Include="ViewModels\SinglePageViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
