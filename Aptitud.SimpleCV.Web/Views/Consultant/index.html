@@ -53,11 +53,10 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default" data-ng-disabled="!newConsult.FirstName || !newConsult.LastName || !newConsult.EmailAddress" data-ng-click="">Lägg till</button>
+                    <button type="button" class="btn btn-default" data-ng-disabled="!newConsult.FirstName || !newConsult.LastName || !newConsult.EmailAddress" data-ng-click="createNewProfile(newConsult)">Lägg till</button>
                 </div>
             </div>
         </div>

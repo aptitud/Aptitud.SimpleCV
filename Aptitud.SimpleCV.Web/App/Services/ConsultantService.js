@@ -1,17 +1,24 @@
-﻿app.service('ConsultantService', function ($resource) {
-    this.getConsultants = function () {
-    
+﻿app.service('ConsultantService', function ($resource, $http) {
+    this.getConsultants = function() {
+
 
         var queryDescriptor;
         queryDescriptor = {
             method: 'GET',
             isArray: true
         };
-        var consultants = $resource('/api/consultants', {}, { query: queryDescriptor } ).query();
+        var consultants = $resource('/api/consultants', {}, { query: queryDescriptor }).query();
 
-        console.log('consultants' + consultants)
+        console.log('consultants' + consultants);
         return consultants;
-    }
+    };
+
+    this.create = function (newConsult, success) {
+        $http.post("/api/commands/createprofile", newConsult)
+            .success(function(data, status, headers, config) {
+                success();
+            });
+    };
 });
 
 //    var consultants = [
