@@ -1,6 +1,6 @@
 ﻿using System;
 using Aptitud.SimpleCV.Model;
-using Aptitud.SimpleCV.Web.Services;
+using Aptitud.SimpleCV.Raven;
 using Nancy;
 using Nancy.ModelBinding;
 

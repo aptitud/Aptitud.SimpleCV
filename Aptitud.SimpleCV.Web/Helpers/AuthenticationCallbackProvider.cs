@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Aptitud.SimpleCV.Raven;
 using Aptitud.SimpleCV.Web.Models;
-using Aptitud.SimpleCV.Web.Services;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.SimpleAuthentication;

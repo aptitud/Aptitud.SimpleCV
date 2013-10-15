@@ -1,5 +1,5 @@
 ﻿using System;
-using Aptitud.SimpleCV.Web.Services;
+using Aptitud.SimpleCV.Raven;
 using Nancy;
 using Raven.Client;
 
@@ -23,7 +23,8 @@ namespace Aptitud.SimpleCV.Web.Modules
                     {
                         try
                         {
-                            RavenSession.SaveChanges();
+                            if(RavenSession.Advanced.HasChanges)
+                                RavenSession.SaveChanges();
                         }
                         catch (Exception e)
                         {

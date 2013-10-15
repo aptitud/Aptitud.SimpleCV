@@ -1,4 +1,4 @@
-﻿using Aptitud.SimpleCV.Web.Services;
+﻿using Aptitud.SimpleCV.Raven;
 using Nancy.Security;
 
 namespace Aptitud.SimpleCV.Web.Modules

@@ -38,7 +38,9 @@ namespace Aptitud.SimpleCV.Model {
 		private IEnumerable<Education> _educations = new List<Education>();
 		public IEnumerable<Education> Educations { get { return _educations ?? new List<Education>(); } set { _educations = value; } }
 
-		public IEnumerable<string> GetSkills(string skillType) {
+	    public string FullName { get; set; }
+
+	    public IEnumerable<string> GetSkills(string skillType) {
 			return Skills.Where(p => p.SkillType == skillType).Select(p => p.Name);
 		}
 	}

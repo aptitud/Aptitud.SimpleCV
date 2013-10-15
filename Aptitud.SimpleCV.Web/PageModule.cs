@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using Aptitud.SimpleCV.Model;
+﻿using Aptitud.SimpleCV.Model;
+using Aptitud.SimpleCV.Raven;
 using Aptitud.SimpleCV.Web.Modules;
-using Aptitud.SimpleCV.Web.Services;
 using Nancy.ModelBinding;
 using Nancy.Responses;
-using SimpleAuthentication.Core.Tracing;
 
 namespace Aptitud.SimpleCV.Web {
 	public class PageModule : RavenModule {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Aptitud.SimpleCV.Raven;
+using Aptitud.SimpleCV.Raven.Impl;
 using Aptitud.SimpleCV.Web.Helpers;
-using Aptitud.SimpleCV.Web.Services;
 using Aptitud.SimpleCV.Web.Services.Nancy;
-using Aptitud.SimpleCV.Web.Services.Raven;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.SimpleAuthentication;
@@ -17,7 +17,7 @@ namespace Aptitud.SimpleCV.Web
         {
             base.ConfigureApplicationContainer(container);
 
-            container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider());
+            container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider(typeof(Bootstrap).Assembly));
             container.Register<IAuthenticationCallbackProvider>((cContainer, overloads) => new AuthenticationCallbackProvider(cContainer.Resolve<ISessionProvider>()));
             container.Register<IUserMapper>((cContainer, overloads) => new RavenUserMapper(container.Resolve<ISessionProvider>()));
         }

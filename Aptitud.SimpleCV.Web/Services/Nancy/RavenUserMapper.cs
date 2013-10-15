@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Aptitud.SimpleCV.Raven;
 using Aptitud.SimpleCV.Web.Models;
 using Aptitud.SimpleCV.Web.Modules;
 using Nancy;

@@ -100,9 +100,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleAuthentication.Core, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SimpleAuthentication.Core, Version=0.3.7.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleAuthentication.Core.0.3.5\lib\net40\SimpleAuthentication.Core.dll</HintPath>
+      <HintPath>..\packages\SimpleAuthentication.Core.0.3.7\lib\net40\SimpleAuthentication.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data.Services.Client" />
@@ -178,6 +178,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="Features\CreateProfile\CreateProfileFromAuthenticationCommand.cs" />
+    <Compile Include="Features\CreateProfile\CreateProfileModule.cs" />
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
     <Compile Include="Helpers\IndexViewModel.cs" />
     <Compile Include="Modules\Api\PostModule.cs" />
@@ -191,10 +193,8 @@
     <Compile Include="Modules\VisitorModule.cs" />
     <Compile Include="PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ISessionProvider.cs" />
     <Compile Include="Services\Nancy\AuthenticatedUser.cs" />
     <Compile Include="Services\Nancy\RavenUserMapper.cs" />
-    <Compile Include="Services\Raven\RavenSessionProvider.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\LinkItemViewModel.cs" />
     <Compile Include="ViewModels\SinglePageViewModel.cs" />
@@ -218,6 +218,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aptitud.SimpleCV.Raven\Aptitud.SimpleCV.Raven.csproj">
+      <Project>{1e03c698-a0bb-44a1-9e8d-3eba05e48135}</Project>
+      <Name>Aptitud.SimpleCV.Raven</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Aptitud.SimpleCV\Aptitud.SimpleCV.csproj">
       <Project>{45d7bc32-f76c-4d38-980f-e94e49b5c2c9}</Project>
       <Name>Aptitud.SimpleCV</Name>
