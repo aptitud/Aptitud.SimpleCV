@@ -14,6 +14,15 @@ namespace Aptitud.SimpleCV.Web {
 
                 return Response.AsJson(list);
             };
+
+            Get["/profile/{id}"] = parameters => {
+                string id = parameters.id;
+
+                var consultant = RavenSession.Load<Consultant>(id);
+
+                return Response.AsJson(consultant);
+            };
+
         }
     }
 }

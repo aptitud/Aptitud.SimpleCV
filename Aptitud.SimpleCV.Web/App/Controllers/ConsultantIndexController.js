@@ -6,16 +6,15 @@
         $scope.consultants = ConsultantService.getConsultants();
 
         $scope.createNewProfile = function(newConsult) {
-            ConsultantService.create(newConsult, function(location) {
+            ConsultantService.create(newConsult, function(profile) {
                 $("#newConsult").modal("hide");
-                console.log("Controller - Create - Success - location:" + location);
+                $scope.consultants.push(profile);
             });
         };
 
         $scope.removeProfile = function (id) {
             console.log("remove: " + id);
             ConsultantService.remove(id, function () {
-                console.log("Controller - Remove - id:" + id);
                 $scope.consultants = ConsultantService.getConsultants();
             });
         };

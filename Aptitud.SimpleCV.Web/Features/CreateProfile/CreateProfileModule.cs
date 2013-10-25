@@ -28,7 +28,7 @@ namespace Aptitud.SimpleCV.Web.Features.CreateProfile
                         .WithStatusCode(HttpStatusCode.Created)
                         .WithContentType("application/json")
                         .WithView("index.sshtml")
-                        .WithHeader("location", string.Format("/profile/{0}", consultant.Id))
+                        .WithHeader("location", string.Format("/api/profile/{0}", consultant.Id))
                         .WithModel(new { Message = "Success", Profile = consultant });
 
                     return response;
