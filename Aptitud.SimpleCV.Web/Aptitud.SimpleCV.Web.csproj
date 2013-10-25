@@ -181,6 +181,10 @@
     <Compile Include="Features\CreateProfile\CreateProfileCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileFromAuthenticationCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileModule.cs" />
+    <Compile Include="Features\CreateProfile\NewProfileCreated.cs" />
+    <Compile Include="Features\ProfileList\ProfileListConsumer.cs" />
+    <Compile Include="Features\ProfileList\ProfileListModule.cs" />
+    <Compile Include="Features\ProfileList\ProfileListViewModel.cs" />
     <Compile Include="Features\RemoveProfile\RemoveProfileModule.cs" />
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
     <Compile Include="Helpers\IndexViewModel.cs" />
@@ -195,6 +199,10 @@
     <Compile Include="Modules\VisitorModule.cs" />
     <Compile Include="PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EventBase.cs" />
+    <Compile Include="Services\Eventing\EventsDispatcher.cs" />
+    <Compile Include="Services\IConsumerOf.cs" />
+    <Compile Include="Services\INeedRavenSession.cs" />
     <Compile Include="Services\Nancy\AuthenticatedUser.cs" />
     <Compile Include="Services\Nancy\RavenUserMapper.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />

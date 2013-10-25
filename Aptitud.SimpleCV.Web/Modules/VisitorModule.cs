@@ -1,7 +1,8 @@
 ﻿using Aptitud.SimpleCV.Raven;
+using Aptitud.SimpleCV.Web.Modules;
 using Nancy.Security;
 
-namespace Aptitud.SimpleCV.Web.Modules
+namespace Aptitud.SimpleCV.Web
 {
     public abstract class VisitorModule : RavenModule
     {
