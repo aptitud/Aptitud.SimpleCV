@@ -14,11 +14,8 @@ namespace Aptitud.SimpleCV.Model {
 
 		public string Id { get; set; }
 
-		private string _firstName = string.Empty;
-		public string FirstName { get { return _firstName ?? string.Empty; } set { _firstName = value; } }
-
-		private string _lastName = string.Empty;
-		public string LastName { get { return _lastName ?? string.Empty; } set { _lastName = value; } }
+		private string _name = string.Empty;
+		public string Name { get { return _name ?? string.Empty; } set { _name = value; } }
 
 		private string _emailAddress = string.Empty;
 		public string EmailAddress { get { return _emailAddress ?? string.Empty; } set { _emailAddress = value; } }
@@ -37,8 +34,6 @@ namespace Aptitud.SimpleCV.Model {
 
 		private IEnumerable<Education> _educations = new List<Education>();
 		public IEnumerable<Education> Educations { get { return _educations ?? new List<Education>(); } set { _educations = value; } }
-
-	    public string FullName { get; set; }
 
 	    public IEnumerable<string> GetSkills(string skillType) {
 			return Skills.Where(p => p.SkillType == skillType).Select(p => p.Name);

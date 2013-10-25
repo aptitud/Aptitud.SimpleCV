@@ -21,7 +21,7 @@ namespace Aptitud.SimpleCV.PDF
         public Consultant Consultant { get; set; }
         public string ConsultantFullName()
         {
-            return string.Format("{0} {1}", Consultant.FirstName, Consultant.LastName);
+            return string.Format("{0}", Consultant.Name);
         }
 
         public void Generate()

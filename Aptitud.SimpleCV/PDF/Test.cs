@@ -14,8 +14,7 @@ namespace Aptitud.SimpleCV.PDF
         static void Main(string[] args)
         {
             Consultant consultant = new Consultant();
-            consultant.FirstName = "Kalle";
-            consultant.LastName = "Kula";
+            consultant.Name = "Kalle Kula";
             consultant.Title = "Software Guru";
             consultant.EmailAddress = "kalle.kula@guruland.com";
             consultant.Summary =

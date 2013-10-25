@@ -18,8 +18,7 @@ namespace Aptitud.SimpleCV.Web.Features.CreateProfile
                     var consultant = new Consultant
                     {
                         EmailAddress = command.EmailAddress,
-                        FirstName = command.FirstName,
-                        LastName = command.LastName,
+                        Name = command.Name,
                     };
 
                     RavenSession.Store(consultant);
@@ -41,7 +40,7 @@ namespace Aptitud.SimpleCV.Web.Features.CreateProfile
                     var consultant = new Consultant
                         {
                             EmailAddress = command.Email,
-                            FullName = command.Name,
+                            Name = command.Name,
                         };
 
                     RavenSession.Store(consultant);
