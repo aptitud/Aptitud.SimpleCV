@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="Features\CreateProfile\CreateProfileCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileFromAuthenticationCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileModule.cs" />
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
