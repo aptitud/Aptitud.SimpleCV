@@ -29,7 +29,7 @@ namespace Aptitud.SimpleCV.Web.Features.CreateProfile
                         .WithContentType("application/json")
                         .WithView("index.sshtml")
                         .WithHeader("location", string.Format("/profile/{0}", consultant.Id))
-                        .WithModel(new { Message = "Success" });
+                        .WithModel(new { Message = "Success", Profile = consultant });
 
                     return response;
                 };

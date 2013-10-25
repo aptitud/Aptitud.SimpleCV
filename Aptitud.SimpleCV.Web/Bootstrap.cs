@@ -17,7 +17,7 @@ namespace Aptitud.SimpleCV.Web
         {
             base.ConfigureApplicationContainer(container);
 
-            container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider(typeof(Bootstrap).Assembly));
+            container.Register<ISessionProvider>((cContainer, overloads) => new RavenSessionProvider(typeof(IConvention).Assembly));
             container.Register<IAuthenticationCallbackProvider>((cContainer, overloads) => new AuthenticationCallbackProvider(cContainer.Resolve<ISessionProvider>()));
             container.Register<IUserMapper>((cContainer, overloads) => new RavenUserMapper(container.Resolve<ISessionProvider>()));
         }

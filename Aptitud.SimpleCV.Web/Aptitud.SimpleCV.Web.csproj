@@ -181,6 +181,7 @@
     <Compile Include="Features\CreateProfile\CreateProfileCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileFromAuthenticationCommand.cs" />
     <Compile Include="Features\CreateProfile\CreateProfileModule.cs" />
+    <Compile Include="Features\RemoveProfile\RemoveProfileModule.cs" />
     <Compile Include="Helpers\AuthenticationCallbackProvider.cs" />
     <Compile Include="Helpers\IndexViewModel.cs" />
     <Compile Include="Modules\Api\PostModule.cs" />
